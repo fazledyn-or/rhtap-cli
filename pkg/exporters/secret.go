@@ -27,7 +27,8 @@ func TransformSecret(ctx context.Context, fetchedResourceList runtime.Object, cl
 		}
 
 		// TODO: Encrypt the content of the secret
-		selectedResources = append(selectedResources, &secret)
+		copiedSecret := secret
+		selectedResources = append(selectedResources, &copiedSecret)
 	}
 	return selectedResources, nil
 }
